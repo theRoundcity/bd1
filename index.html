@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button design</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            margin: 0;
+        }
+        div{
+            padding: 5px;
+            background-color: #555;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        div::after{
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: #555;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: background .25s;
+        }
+        div:hover{
+            background-color: cadetblue;
+            box-shadow: 0 3px 3px 0 lightblue;
+        }
+        div:active{
+            background-color: darksalmon;
+            box-shadow: 0 1px 3px 0 darksalmon;
+        }
+        div:hover::after{
+            background-color: lightblue;
+            animation: r 1s infinite linear;            
+        }
+        div:active::after{
+            background-color: #e5e5e5;
+        }
+        @keyframes r{
+            0%{top: 0;left: 0;}
+            25%{top: 0;left: calc(100% - 20px)}
+            50%{top: calc(100% - 20px);left: calc(100% - 20px)}
+            75%{top: calc(100% - 20px);left: 0}
+        }
+        button{
+            position: relative;
+            z-index: 2;
+            border: none;
+            outline: none;
+            background-color: #222;
+            color: #999;
+            padding: 20px;
+            border-radius: 20px;
+            text-transform: capitalize;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: color .25s;
+        }
+        div:hover button{
+            color: lightblue;
+        }
+        div:active button{
+            color: darksalmon;
+        }
+    </style>
+</head>
+<body>
+    <div><button>click me</button></div>
+</body>
+</html>
